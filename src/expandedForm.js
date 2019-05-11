@@ -1,5 +1,5 @@
-const expandedForm = (num) => {
-	return '1';
+const expandedForm = (input) => {
+	return '' + input;
 };
 
 module.exports = expandedForm;
