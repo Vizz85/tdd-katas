@@ -14,4 +14,8 @@ describe('expandedForm', () => {
 		expect(expandedForm(1)).toBe('1');
 	});
 
+	test('when input are decades with units, then return them divided by a plus as a string', () => {
+		expect(expandedForm(15)).toBe('10 + 5');
+	});
+
 });
