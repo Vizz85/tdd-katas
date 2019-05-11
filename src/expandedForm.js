@@ -1,6 +1,7 @@
 const expandedForm = (input) => {
-	if (input === 15) {
-		return '' + 10 + ' + ' + 5;
+	if (input >= 10) {
+		const arrayOfDigits = ('' + input).split('');
+		return '' + arrayOfDigits[0] * 10 + ' + ' + arrayOfDigits[1];
 	}
 	return '' + input;
 };
