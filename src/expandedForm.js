@@ -1,1 +1,3 @@
-module.exports = (num) => '1';
+const expandedForm = (num) => '1';
+
+module.exports = expandedForm;
