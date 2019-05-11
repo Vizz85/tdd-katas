@@ -18,4 +18,8 @@ describe('expandedForm', () => {
 		expect(expandedForm(15)).toBe('10 + 5');
 	});
 
+	test('when input are hundreds with decades and units, then return them divided by a plus as a string', () => {
+		expect(expandedForm(346)).toBe('300 + 40 + 6');
+	});
+
 });
