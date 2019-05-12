@@ -1,24 +1,24 @@
-function shouldAddPlusSign(positionOfDigitFromRight) {
-	return positionOfDigitFromRight > 0;
+function shouldAddPlusSign(position) {
+	return position > 0;
 }
 
-function expandedFormOfSingleDigit(digit, positionOfDigitFromRight) {
-	return digit * Math.pow(10, positionOfDigitFromRight);
+function expandedFormOfSingleDigit(digit, positionFromRight) {
+	return digit * Math.pow(10, positionFromRight);
 }
 
 function digitShouldAppearInResultString(digit) {
 	return digit != 0;
 }
 
-function handleSingleDigit(digit, positionOfDigitFromRight) {
+function handleSingleDigit(digit, position, positionFromRight) {
 	let outputOfSingleDigit = '';
 
 	if (digitShouldAppearInResultString(digit)) {
-		outputOfSingleDigit += expandedFormOfSingleDigit(digit, positionOfDigitFromRight);
-
-		if (shouldAddPlusSign(positionOfDigitFromRight)) {
+		if (shouldAddPlusSign(position)) {
 			outputOfSingleDigit += ' + ';
 		}
+
+		outputOfSingleDigit += expandedFormOfSingleDigit(digit, positionFromRight);
 	}
 	return outputOfSingleDigit;
 }
@@ -27,13 +27,13 @@ const expandedForm = (input) => {
 	const arrayOfDigits = ('' + input).split('');
 	let resultString = '';
 
-	for (let i = 0; i < arrayOfDigits.length; i++) {
-		const digit = arrayOfDigits[i];
-		const positionOfDigitFromRight = arrayOfDigits.length - 1 - i;
-		resultString += handleSingleDigit(digit, positionOfDigitFromRight);
+	for (let position = 0; position < arrayOfDigits.length; position++) {
+		const digit = arrayOfDigits[position];
+		const positionFromRight = arrayOfDigits.length - 1 - position;
+		resultString += handleSingleDigit(digit, position, positionFromRight);
 	}
 
-	return resultString.endsWith(' + ') ? resultString.substr(0, resultString.length - 3) : resultString;
+	return resultString;
 };
 
 module.exports = expandedForm;
