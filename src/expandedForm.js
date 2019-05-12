@@ -1,13 +1,17 @@
 const expandedForm = (input) => {
-	if (input >= 100) {
-		const arrayOfDigits = ('' + input).split('');
-		return '' + arrayOfDigits[0] * 100 + ' + ' + arrayOfDigits[1] * 10 + ' + ' + arrayOfDigits[2];
+	const arrayOfDigits = ('' + input).split('');
+
+	let resultString = '';
+
+	for (let i = 0; i < arrayOfDigits.length; i++) {
+		resultString += arrayOfDigits[i] * Math.pow(10, arrayOfDigits.length - 1 - i);
+
+		if (arrayOfDigits.length - 1 - i !== 0) {
+			resultString += ' + ';
+		}
 	}
-	if (input >= 10) {
-		const arrayOfDigits = ('' + input).split('');
-		return '' + arrayOfDigits[0] * 10 + ' + ' + arrayOfDigits[1];
-	}
-	return '' + input;
+
+	return resultString;
 };
 
 module.exports = expandedForm;
