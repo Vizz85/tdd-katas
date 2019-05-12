@@ -22,4 +22,8 @@ describe('expandedForm', () => {
 		expect(expandedForm(346)).toBe('300 + 40 + 6');
 	});
 
+	test('when a digit of the numeral is a 0, then it should not appear in the output', () => {
+		expect(expandedForm(609)).toBe('600 + 9');
+	});
+
 });

@@ -14,6 +14,10 @@ const expandedForm = (input) => {
 		const digit = arrayOfDigits[i];
 		const positionOfDigitFromRight = arrayOfDigits.length - 1 - i;
 
+		if (digit == 0) {
+			continue;
+		}
+
 		resultString += expandedFormOfSingleDigit(digit, positionOfDigitFromRight);
 
 		if (shouldAddPlusSign(positionOfDigitFromRight)) {
