@@ -33,7 +33,7 @@ const expandedForm = (input) => {
 		resultString += handleSingleDigit(digit, positionOfDigitFromRight);
 	}
 
-	return resultString;
+	return resultString.endsWith(' + ') ? resultString.substr(0, resultString.length - 3) : resultString;
 };
 
 module.exports = expandedForm;

@@ -26,4 +26,8 @@ describe('expandedForm', () => {
 		expect(expandedForm(609)).toBe('600 + 9');
 	});
 
+	test('when input is any numeral, then should not end with a plus', () => {
+		expect(expandedForm(60600)).toBe('60000 + 600');
+	})
+
 });
